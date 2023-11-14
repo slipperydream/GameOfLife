@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy581h26yuxvv"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_u4i5s"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4i5s")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.447
+anchor_top = 0.5
+anchor_right = 0.447
+anchor_bottom = 0.5
+offset_left = -30.944
+offset_top = -15.0
+offset_right = 25.056
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[node name="StopButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -15.5
+offset_right = 24.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "STOP"
+
+[node name="ResetButton3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.566
+anchor_top = 0.5
+anchor_right = 0.566
+anchor_bottom = 0.5
+offset_left = -31.0321
+offset_top = -16.0
+offset_right = 22.9679
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESET"
+
+[node name="RandomizeButton4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.566
+anchor_top = 0.5
+anchor_right = 0.566
+anchor_bottom = 0.5
+offset_left = 48.4679
+offset_top = -16.0
+offset_right = 143.468
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Randomize"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="ResetButton3" to="." method="_on_reset_button_3_pressed"]
+[connection signal="pressed" from="RandomizeButton4" to="." method="_on_randomize_button_4_pressed"]
