@@ -4,6 +4,7 @@ signal start
 signal stop
 signal reset
 signal randomize
+signal speed_changed
 
 # add grid size control 
 # add selectable grids
@@ -27,3 +28,7 @@ func _on_start_button_pressed():
 
 func _on_randomize_button_4_pressed():
 	randomize.emit()
+
+
+func _on_h_slider_value_changed(value):
+	emit_signal("speed_changed", value)

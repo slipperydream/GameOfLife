@@ -5,19 +5,17 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5078r")
-grid_columns = 175
-grid_rows = 100
-cell_width = 16
-cell_height = 16
-edge_buffer = 8
-speed = 5
+grid_columns = 15
+grid_rows = 8
+edge_buffer = 0
+speed = 10
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_wgdk2")]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_bottom = 0.5
+anchors_preset = 12
+anchor_top = 1.0
+grow_vertical = 0
 size_flags_horizontal = 3
 
 [node name="Timer" type="Timer" parent="."]
@@ -25,6 +23,7 @@ one_shot = true
 
 [connection signal="randomize" from="CanvasLayer/UI" to="." method="_on_ui_randomize"]
 [connection signal="reset" from="CanvasLayer/UI" to="." method="_on_ui_reset"]
+[connection signal="speed_changed" from="CanvasLayer/UI" to="." method="_on_ui_speed_changed"]
 [connection signal="start" from="CanvasLayer/UI" to="." method="_on_ui_start"]
 [connection signal="stop" from="CanvasLayer/UI" to="." method="_on_ui_stop"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

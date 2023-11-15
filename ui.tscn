@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy581h26yuxvv"]
+[gd_scene load_steps=4 format=3 uid="uid://cy581h26yuxvv"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_u4i5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wft38"]
+bg_color = Color(0, 0.6, 0.858824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prph8"]
+bg_color = Color(0.0705882, 0.305882, 0.537255, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,67 +17,53 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u4i5s")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.447
-anchor_top = 0.5
-anchor_right = 0.447
-anchor_bottom = 0.5
-offset_left = -30.944
-offset_top = -15.0
-offset_right = 25.056
-offset_bottom = 16.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -169.5
+offset_top = -40.0
+offset_right = 169.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "START"
 
-[node name="StopButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -24.5
-offset_top = -15.5
-offset_right = 24.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="StopButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "STOP"
 
-[node name="ResetButton3" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.566
-anchor_top = 0.5
-anchor_right = 0.566
-anchor_bottom = 0.5
-offset_left = -31.0321
-offset_top = -16.0
-offset_right = 22.9679
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ResetButton3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "RESET"
 
-[node name="RandomizeButton4" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.566
-anchor_top = 0.5
-anchor_right = 0.566
-anchor_bottom = 0.5
-offset_left = 48.4679
-offset_top = -16.0
-offset_right = 143.468
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RandomizeButton4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "Randomize"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="StopButton" to="." method="_on_stop_button_pressed"]
-[connection signal="pressed" from="ResetButton3" to="." method="_on_reset_button_3_pressed"]
-[connection signal="pressed" from="RandomizeButton4" to="." method="_on_randomize_button_4_pressed"]
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 12)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_wft38")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_prph8")
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 1.0
+
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResetButton3" to="." method="_on_reset_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/RandomizeButton4" to="." method="_on_randomize_button_4_pressed"]
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

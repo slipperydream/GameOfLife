@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsb8bvh7sgo1v"]
+
+[ext_resource type="Texture2D" uid="uid://47t1vnmjrn2t" path="res://dead_icon.png" id="1_7dvv0"]
+[ext_resource type="Texture2D" uid="uid://gjf4wtquo63x" path="res://icon.svg" id="1_022s8"]
+[ext_resource type="Script" path="res://cell_button.gd" id="2_hkjqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0eew"]
+
+[node name="CellButton" type="CheckButton"]
+custom_minimum_size = Vector2(8, 8)
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_icons/checked = ExtResource("1_022s8")
+theme_override_icons/unchecked = ExtResource("1_7dvv0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0eew")
+button_pressed = true
+script = ExtResource("2_hkjqr")
+theme_override_icons/unchecked = ExtResource("1_7dvv0")

@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://byduby2fixaql"]
-
-[ext_resource type="Script" path="res://cell.gd" id="1_i1glr"]
-[ext_resource type="Texture2D" uid="uid://d20bio7v2ihwd" path="res://dead_icon.png" id="2_kl15f"]
-
-[node name="Cell" type="Sprite2D"]
-texture = ExtResource("2_kl15f")
-script = ExtResource("1_i1glr")
